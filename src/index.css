@@ -1,0 +1,567 @@
+:root {
+  --bg: #0e1526;      /* bleu nuit : fond de la page */
+  --card: #161f36;    /* bleu nuit un peu plus clair : cartes */
+  --ink: #e8ecf8;     /* texte principal */
+  --mut: #8e9ab8;     /* texte secondaire */
+  --br: #8a8fd8;      /* lavande froide : accent, boutons, liens */
+  --br2: #232d4d;     /* fond doux : barres, boutons secondaires, bulles du bot */
+  --line: #2c3758;    /* bordures */
+  --on-br: #0e1526;   /* texte posé sur la lavande */
+  --ok: #45a888;
+  --w: #d09a36;
+  --c: #e0614f;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", system-ui, sans-serif;
+}
+.navbar {
+  background: linear-gradient(120deg, #6f8fb0, #9db5cd);
+  color: #fff;
+  padding: 14px 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 19px;
+  letter-spacing: 0.12em;
+}
+
+.navbar nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.navbar nav a {
+  color: #fff;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 14px;
+}
+
+.navbar nav a:hover,
+.navbar nav a.on {
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.page {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 18px;
+}
+.grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+}
+
+.card {
+  display: block;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  padding: 14px;
+  color: inherit;
+  text-decoration: none;
+  box-shadow: 0 2px 10px rgba(80, 110, 140, 0.08);
+}
+
+a.card:hover { border-color: var(--br); }
+
+.card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.metric {
+  display: flex;
+  justify-content: space-between;
+  padding: 4px 0;
+  border-bottom: 1px dashed var(--line);
+  font-size: 14px;
+}
+
+.metric:last-child { border: 0; }
+
+.muted { color: var(--mut); }
+
+.tag {
+  border-radius: 12px;
+  padding: 2px 10px;
+  font-size: 12px;
+  color: #fff;
+}
+
+.t0 { background: var(--ok); }
+.t1 { background: var(--w); }
+.t2 { background: var(--c); }
+
+.s0 { color: var(--ok); }
+.s1 { color: var(--w); }
+.s2 { color: var(--c); font-weight: 700; }
+.big { font-size: 24px; font-weight: 600; }
+
+.dot {
+  display: inline-block;
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  margin-right: 6px;
+}
+.d0 { background: var(--ok); }
+.d1 { background: var(--w); }
+.d2 { background: var(--c); }
+
+.row { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+
+button {
+  background: var(--br);
+  color: #fff;
+  border: 0;
+  border-radius: 10px;
+  padding: 8px 14px;
+  cursor: pointer;
+  font: inherit;
+}
+button.alt { background: var(--br2); color: var(--ink); }
+
+.question { margin: 8px 0; }
+input[type="range"] { width: 100%; accent-color: var(--br); }
+
+.bar {
+  height: 10px;
+  background: var(--br2);
+  border-radius: 6px;
+  overflow: hidden;
+  margin: 10px 0 6px;
+}
+.bar i { display: block; height: 100%; }
+.emergency {
+  background: var(--c);
+  color: #fff;
+  padding: 14px 20px;
+}
+
+.emergency ol { margin: 6px 0 10px 18px; padding: 0; }
+
+.emergency button { background: #fff; color: var(--c); }
+
+button.danger { background: var(--c); }
+
+.alert-list { display: grid; gap: 8px; margin-top: 12px; }
+.chatbox {
+  height: 360px;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-bottom: 6px;
+}
+
+.bubble {
+  max-width: 80%;
+  padding: 8px 12px;
+  border-radius: 14px;
+  line-height: 1.45;
+}
+
+.bubble.user { align-self: flex-end; background: var(--br); color: #fff; }
+.bubble.bot { align-self: flex-start; background: var(--br2); }
+
+.chat-input { display: flex; gap: 8px; margin: 10px 0 6px; }
+
+.chat-input input {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: 10px;
+  border: 1px solid var(--line);
+  background: var(--card);
+  color: var(--ink);
+  font: inherit;
+}
+.conn {
+  font-size: 13px;
+  padding: 4px 10px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.25);
+}
+.conn.on { color: #fff; }
+.conn.off { color: #ffd9d3; }
+.src {
+  font-size: 11px;
+  padding: 1px 7px;
+  border-radius: 10px;
+  margin-left: 4px;
+}
+.src.real { background: var(--ok); color: #fff; }
+.src.sim { background: var(--br2); color: var(--mut); }
+.video {
+  width: 100%;
+  max-height: 60vh;
+  border-radius: 12px;
+  background: #000;
+}
+
+.emergency-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: 1.4fr 1fr;
+}
+@media (max-width: 800px) {
+  .emergency-grid { grid-template-columns: 1fr; }
+}
+
+.steps { margin: 6px 0 0 18px; padding: 0; }
+.steps li { margin: 10px 0; }
+
+.notice {
+  background: var(--c);
+  color: #fff;
+  padding: 10px 14px;
+  border-radius: 12px;
+}
+
+.emergency .btn-link {
+  display: inline-block;
+  background: #fff;
+  color: var(--c);
+  padding: 8px 14px;
+  border-radius: 10px;
+  text-decoration: none;
+  margin-right: 8px;
+}
+/* ===== Fond spatial ===== */
+.space {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  overflow: hidden;
+  pointer-events: none;
+  background:
+    radial-gradient(ellipse at 20% 10%, #1a2350 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, #2a1f55 0%, transparent 50%),
+    var(--bg);
+}
+
+/* Étoiles : 3 couches qui scintillent à des rythmes différents */
+.stars { position: absolute; top: 0; left: 0; width: 1px; height: 1px; border-radius: 50%; }
+.s1 { animation: twinkle 4s ease-in-out infinite; }
+.s2 { width: 2px; height: 2px; animation: twinkle 6s ease-in-out 1s infinite; }
+.s3 { width: 3px; height: 3px; animation: twinkle 8s ease-in-out 2s infinite; }
+@keyframes twinkle { 0%, 100% { opacity: 0.3; } 50% { opacity: 1; } }
+
+/* Galaxies qui tournent très lentement */
+.galaxy {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.8;
+  -webkit-mask-image: radial-gradient(circle, #000 25%, transparent 70%);
+  mask-image: radial-gradient(circle, #000 25%, transparent 70%);
+  animation: spin 160s linear infinite;
+}
+.g1 {
+  width: 520px; height: 520px; right: -140px; top: -120px;
+  background:
+    radial-gradient(circle at center, rgba(255, 240, 220, 0.55) 0%, rgba(160, 150, 255, 0.25) 12%, transparent 40%),
+    conic-gradient(from 0deg, transparent 0deg, rgba(138, 143, 216, 0.35) 40deg, transparent 90deg,
+      rgba(110, 150, 230, 0.3) 200deg, transparent 260deg, rgba(190, 140, 230, 0.3) 300deg, transparent 360deg);
+}
+.g2 {
+  width: 360px; height: 360px; left: -100px; bottom: -80px;
+  animation-direction: reverse;
+  animation-duration: 220s;
+  background:
+    radial-gradient(circle at center, rgba(255, 220, 200, 0.45) 0%, rgba(200, 140, 230, 0.2) 14%, transparent 42%),
+    conic-gradient(from 90deg, transparent 0deg, rgba(190, 140, 230, 0.35) 50deg, transparent 110deg,
+      rgba(120, 160, 240, 0.3) 220deg, transparent 300deg);
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+
+/* Étoile filante, toutes les 9 secondes */
+.shooting {
+  position: absolute; top: 12%; left: -10%;
+  width: 120px; height: 2px;
+  background: linear-gradient(90deg, transparent, #fff);
+  opacity: 0;
+  animation: shoot 9s linear infinite;
+}
+@keyframes shoot {
+  0% { transform: translate(0, 0) rotate(20deg); opacity: 0; }
+  2% { opacity: 1; }
+  12% { transform: translate(120vw, 45vh) rotate(20deg); opacity: 0; }
+  100% { transform: translate(120vw, 45vh) rotate(20deg); opacity: 0; }
+}
+
+/* Satellite qui traverse l'écran */
+.drift {
+  position: absolute; top: 70%; left: -5%;
+  font-size: 28px; opacity: 0.7;
+  animation: drift 60s linear infinite;
+}
+@keyframes drift { to { transform: translateX(110vw) rotate(360deg); } }
+
+/* Respect des personnes qui désactivent les animations dans Windows */
+@media (prefers-reduced-motion: reduce) {
+  .space * { animation: none !important; }
+}
+
+/* Cartes un peu transparentes + lueur au survol */
+.card { background: rgba(22, 31, 54, 0.85); }
+a.card { transition: transform 0.2s, box-shadow 0.2s; }
+a.card:hover {
+  border-color: var(--br);
+  box-shadow: 0 0 18px rgba(138, 143, 216, 0.35);
+  transform: translateY(-2px);
+}
+.metric button {
+  padding: 4px 10px;
+  font-size: 13px;
+  margin-left: 8px;
+  white-space: nowrap;
+}
+/* Cartes de métriques cliquables */
+.metric-card { display: block; cursor: pointer; }
+.more { display: block; margin-top: 6px; color: var(--br); }
+
+/* Navigation au clavier : contour visible */
+.metric-card:focus-visible,
+.chip:focus-visible,
+button:focus-visible {
+  outline: 2px solid var(--br);
+  outline-offset: 2px;
+}
+
+/* Page de détail */
+.chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 14px; }
+.chip {
+  padding: 4px 10px;
+  border-radius: 16px;
+  background: var(--br2);
+  color: var(--ink);
+  text-decoration: none;
+  font-size: 13px;
+}
+.chip.on { background: var(--br); color: var(--on-br); }
+
+.stats {
+  display: grid;
+  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  margin: 12px 0;
+}
+.stat { background: var(--br2); border-radius: 12px; padding: 10px; }
+.stat small { display: block; color: var(--mut); }
+.stat b { font-size: 20px; }
+
+.tbl { width: 100%; border-collapse: collapse; font-size: 14px; }
+.tbl th, .tbl td { text-align: left; padding: 6px 8px; border-bottom: 1px solid var(--line); }
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+/* ===== Dashboard : 3 astronautes en haut, 2 en bas (centrés) ===== */
+.crew-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(6, 1fr);
+}
+.crew-grid > * { grid-column: span 2; }
+.crew-grid > :nth-child(4) { grid-column: 2 / span 2; }
+.crew-grid > :nth-child(5) { grid-column: 4 / span 2; }
+
+.device-panel {
+  margin: 14px 0 20px;
+  padding: 16px;
+  background: rgba(22, 31, 54, 0.9);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+}
+.device-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.device-head h3 { margin: 0; }
+.device-head p { margin: 4px 0 12px; }
+.sensor-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+}
+.sensor-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  min-width: 0;
+  padding: 12px;
+  border-radius: 12px;
+  background: var(--br2);
+}
+.sensor-stat b { font-size: 20px; overflow-wrap: anywhere; }
+.sensor-label { color: var(--mut); font-size: 14px; }
+.sensor-note { margin: 12px 0 0; }
+@media (max-width: 560px) {
+  .sensor-grid { grid-template-columns: 1fr; }
+  .device-head { flex-direction: column; }
+}
+
+@media (max-width: 900px) {
+  .crew-grid { grid-template-columns: repeat(2, 1fr); }
+  .crew-grid > *,
+  .crew-grid > :nth-child(4),
+  .crew-grid > :nth-child(5) { grid-column: auto; }
+}
+@media (max-width: 560px) {
+  .crew-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Valeurs critiques bien visibles ===== */
+.val { white-space: nowrap; }
+.s2 { font-size: 1.05em; text-shadow: 0 0 10px rgba(224, 97, 79, 0.6); }
+.card.crit {
+  border-color: var(--c);
+  box-shadow: 0 0 20px rgba(224, 97, 79, 0.35);
+}
+
+/* ===== Satellites en arrière-plan ===== */
+.sat {
+  position: absolute;
+  left: -6%;
+  opacity: 0.75;
+  animation: sat-ltr 60s linear infinite;
+}
+.sat.rtl {
+  left: auto;
+  right: -6%;
+  animation-name: sat-rtl;
+}
+@keyframes sat-ltr {
+  from { transform: translateX(0) rotate(0deg); }
+  to { transform: translateX(115vw) rotate(360deg); }
+}
+@keyframes sat-rtl {
+  from { transform: translateX(0) rotate(0deg); }
+  to { transform: translateX(-115vw) rotate(-360deg); }
+}
+
+/* ===== Assistant flottant ===== */
+.cw-btn {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  z-index: 60;
+  width: 58px;
+  height: 58px;
+  padding: 0;
+  border-radius: 50%;
+  font-size: 28px;
+  background: linear-gradient(135deg, #8a8fd8, #5b43a8);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45), 0 0 18px rgba(138, 143, 216, 0.5);
+}
+
+.cw-panel {
+  position: fixed;
+  right: 18px;
+  bottom: 90px;
+  z-index: 60;
+  width: min(340px, calc(100vw - 36px));
+  height: min(460px, calc(100vh - 130px));
+  display: flex;
+  flex-direction: column;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 18px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+.cw-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 14px;
+  background: linear-gradient(120deg, #2a1646, #4a2a7a);
+  color: #fff;
+}
+.cw-head button { background: transparent; color: #fff; padding: 2px 8px; font-size: 18px; }
+.cw-msgs {
+  flex: 1;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 10px;
+}
+.cw-panel .row { padding: 0 10px; margin-top: 0; }
+.cw-panel .row button { font-size: 12px; padding: 4px 8px; }
+.cw-panel .row small { padding: 4px 0; }
+.cw-panel .chat-input { padding: 8px 10px 10px; margin: 0; }
+/* ===== Métriques : 3 par ligne ===== */
+.metrics-grid {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 900px) {
+  .metrics-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .metrics-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Actions et questionnaire : cartes en pleine largeur ===== */
+.wide-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  margin-top: 14px;
+}
+.actions-list {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  column-gap: 28px;
+}
+.questions-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 6px 28px;
+}
+@media (max-width: 900px) {
+  .actions-list { grid-template-columns: 1fr; }
+  .questions-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 560px) {
+  .questions-grid { grid-template-columns: 1fr; }
+}
+
+/* ===== Badge d'état + métriques en anomalie ===== */
+.card-head { flex-wrap: wrap; gap: 6px; }
+.status-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  align-items: center;
+  justify-content: flex-end;
+}
+.anom {
+  font-size: 12px;
+  padding: 2px 9px;
+  border-radius: 12px;
+  color: #fff;
+  white-space: nowrap;
+}
+.page-title .anom { margin-left: 6px; vertical-align: middle; }
+/* Barre de navigation : mauve foncé */
+.navbar {
+  background: linear-gradient(120deg, #2a1646, #4a2a7a);
+}
